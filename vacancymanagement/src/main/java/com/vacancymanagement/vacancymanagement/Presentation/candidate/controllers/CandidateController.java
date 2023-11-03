@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.vacancymanagement.vacancymanagement.Application.DTO.CandidateDTO;
 import com.vacancymanagement.vacancymanagement.Application.UseCases.CandidateUseCase;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("v1/candidate")
 public class CandidateController {
@@ -19,9 +21,9 @@ public class CandidateController {
     private CandidateUseCase candidateUseCase;
 
     @PostMapping("/criar")
-    public ResponseEntity<String> create(@RequestBody CandidateDTO candidate) {
+    public ResponseEntity<String> create(@Valid @RequestBody CandidateDTO candidate) {
         try {
-            candidateUseCase.create(candidate);
+            candidateUseCase.execute(candidate);
             return ResponseEntity.status(HttpStatus.CREATED).body("Candidato criado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao criar candidato: " + e.getMessage());

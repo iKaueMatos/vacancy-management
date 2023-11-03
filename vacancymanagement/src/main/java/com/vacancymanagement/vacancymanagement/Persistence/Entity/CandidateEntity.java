@@ -1,12 +1,15 @@
 package com.vacancymanagement.vacancymanagement.Persistence.Entity;
 
+import java.util.Date;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +26,6 @@ public class CandidateEntity {
     private Long id;
 
     @NotBlank
-    @Column(name = "nome")
     private String name;
 
     @NotBlank
@@ -42,8 +44,10 @@ public class CandidateEntity {
     @Column(name = "curriculo_pdf")
     private String curriculum;
 
-    @NotBlank
-    @Min(value = 18, message = "A idade deve ser maior ou igual a 0")
     @Column(name = "idade")
     private Integer age;
+
+    @CreationTimestamp
+    @Column(name = "data_criacao")
+    private Date createAt;
 }
