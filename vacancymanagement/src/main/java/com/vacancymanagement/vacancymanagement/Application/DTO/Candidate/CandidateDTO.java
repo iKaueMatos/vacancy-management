@@ -1,4 +1,4 @@
-package com.vacancymanagement.vacancymanagement.Application.DTO;
+package com.vacancymanagement.vacancymanagement.Application.DTO.Candidate;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;

@@ -1,11 +1,11 @@
-package com.vacancymanagement.vacancymanagement.Application.UseCases;
+package com.vacancymanagement.vacancymanagement.Application.UseCases.Candidate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.vacancymanagement.vacancymanagement.Application.DTO.CandidateDTO;
-import com.vacancymanagement.vacancymanagement.Domain.Model.CandidateModelMapper;
-import com.vacancymanagement.vacancymanagement.Domain.Services.CandidateValidationService;
+import com.vacancymanagement.vacancymanagement.Application.DTO.Candidate.CandidateDTO;
+import com.vacancymanagement.vacancymanagement.Domain.Candidate.Model.CandidateModelMapper;
+import com.vacancymanagement.vacancymanagement.Domain.Candidate.Services.CandidateValidationService;
 import com.vacancymanagement.vacancymanagement.Persistence.Entity.CandidateEntity;
 import com.vacancymanagement.vacancymanagement.Persistence.Repository.CandidateRespository;
 

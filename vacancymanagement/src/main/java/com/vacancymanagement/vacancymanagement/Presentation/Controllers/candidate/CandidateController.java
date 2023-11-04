@@ -1,4 +1,4 @@
-package com.vacancymanagement.vacancymanagement.Presentation.candidate.controllers;
+package com.vacancymanagement.vacancymanagement.Presentation.Controllers.candidate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.vacancymanagement.vacancymanagement.Application.DTO.CandidateDTO;
-import com.vacancymanagement.vacancymanagement.Application.UseCases.CandidateUseCase;
+import com.vacancymanagement.vacancymanagement.Application.DTO.Candidate.CandidateDTO;
+import com.vacancymanagement.vacancymanagement.Application.UseCases.Candidate.CandidateUseCase;
 
 import jakarta.validation.Valid;
 

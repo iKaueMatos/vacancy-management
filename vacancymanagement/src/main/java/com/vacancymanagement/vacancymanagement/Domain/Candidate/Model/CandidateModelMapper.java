@@ -1,10 +1,10 @@
-package com.vacancymanagement.vacancymanagement.Domain.Model;
+package com.vacancymanagement.vacancymanagement.Domain.Candidate.Model;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.vacancymanagement.vacancymanagement.Application.DTO.CandidateDTO;
+import com.vacancymanagement.vacancymanagement.Application.DTO.Candidate.CandidateDTO;
 import com.vacancymanagement.vacancymanagement.Persistence.Entity.CandidateEntity;
 
 @Component

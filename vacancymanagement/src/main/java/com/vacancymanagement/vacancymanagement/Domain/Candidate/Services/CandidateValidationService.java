@@ -1,8 +1,8 @@
-package com.vacancymanagement.vacancymanagement.Domain.Services;
+package com.vacancymanagement.vacancymanagement.Domain.Candidate.Services;
 
 import org.springframework.stereotype.Service;
 
-import com.vacancymanagement.vacancymanagement.Application.DTO.CandidateDTO;
+import com.vacancymanagement.vacancymanagement.Application.DTO.Candidate.CandidateDTO;
 import com.vacancymanagement.vacancymanagement.Persistence.Repository.CandidateRespository;
 
 @Service
