@@ -1,4 +1,4 @@
-package com.vacancymanagement.vacancymanagement.Domain.Candidate.Services;
+package com.vacancymanagement.vacancymanagement.Domain.Candidate.Service;
 
 import org.springframework.stereotype.Service;
 

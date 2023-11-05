@@ -1,41 +1,27 @@
 package com.vacancymanagement.vacancymanagement.Application.UseCases.Candidate;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.vacancymanagement.vacancymanagement.Application.DTO.Candidate.CandidateDTO;
-import com.vacancymanagement.vacancymanagement.Domain.Candidate.Model.CandidateModelMapper;
-import com.vacancymanagement.vacancymanagement.Domain.Candidate.Services.CandidateValidationService;
-import com.vacancymanagement.vacancymanagement.Persistence.Entity.CandidateEntity;
-import com.vacancymanagement.vacancymanagement.Persistence.Repository.CandidateRespository;
+import com.vacancymanagement.vacancymanagement.Domain.Candidate.Service.CandidateService;
+import com.vacancymanagement.vacancymanagement.Domain.Candidate.Service.CandidateValidationService;
 
 import jakarta.validation.ValidationException;
 
 @Service
 public class CandidateUseCase {
 
-    private CandidateRespository candidateRepository;
     private CandidateValidationService validationService;
-    private CandidateModelMapper candidateModelMapper;
 
-    @Autowired
-    public CandidateUseCase(
-        CandidateRespository candidateRepository,
-        CandidateValidationService validationService,
-        CandidateModelMapper candidateModelMapper
-    ) {
-        this.candidateRepository = candidateRepository;
-        this.validationService = validationService;
-        this.candidateModelMapper = candidateModelMapper;
-    }
+    private CandidateService candidateService;
 
-    public CandidateDTO execute(CandidateDTO candidateDTO) {
+    public ResponseEntity<CandidateDTO> execute(CandidateDTO candidateDTO) {
         if (validationService.isValidCandidate(candidateDTO)) {
-            CandidateEntity candidateEntity = candidateModelMapper.toCandidateDTOAsCandidateEntity(candidateDTO);
-            CandidateEntity savedCandidateEntity = candidateRepository.save(candidateEntity);
-            CandidateDTO newCandidateDTO = candidateModelMapper.toCandidateDTOResponse(savedCandidateEntity);
+            CandidateDTO newCandidateDTO = candidateService.createCandidate(candidateDTO);
 
-            return newCandidateDTO;
+            return new ResponseEntity<>(newCandidateDTO, HttpStatus.OK);
         } else {
             throw new ValidationException("Dados do candidato inválidos");
         }

@@ -1,8 +1,6 @@
 package com.vacancymanagement.vacancymanagement.Persistence.Entity;
 
-import java.util.Date;
-
-import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,21 +10,23 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "Candidato")
-public class CandidateEntity {
+@EqualsAndHashCode
+@Table(name = "Empresa")
+public class CompanyEntity {
     
     @Id
-    @Column(name = "id_candidato")
+    @Column(name = "id_empresa")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    @Column(name = "nome")
+    @Column(name = "nome_empresa")
     private String name;
 
     @NotBlank
@@ -34,21 +34,19 @@ public class CandidateEntity {
     private String username;
 
     @NotBlank
-    @Column(name = "email")
-    private String email;
+    @Column(name = "website")
+    private String website;
 
     @NotBlank
     @Column(name = "descricao")
     private String description;
 
     @NotBlank
-    @Column(name = "curriculo_pdf")
-    private String curriculum;
+    @Column(name = "senha")
+    private String password;
 
-    @Column(name = "idade")
-    private Integer age;
-
-    @CreationTimestamp
-    @Column(name = "data_criacao")
-    private Date createAt;
+    @CNPJ
+    @NotBlank
+    @Column(name = "cnpj")
+    private String cnpj;
 }

@@ -1,4 +1,4 @@
-package com.vacancymanagement.vacancymanagement.Domain.Exceptions;
+package com.vacancymanagement.vacancymanagement.Infra.Handler;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
