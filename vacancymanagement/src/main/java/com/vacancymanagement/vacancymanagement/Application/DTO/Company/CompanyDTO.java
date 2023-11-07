@@ -1,7 +1,5 @@
 package com.vacancymanagement.vacancymanagement.Application.DTO.Company;
 
-import org.hibernate.validator.constraints.br.CNPJ;
-
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -28,7 +26,6 @@ public class CompanyDTO {
     @Min(value = 8, message = "Senha invalida porfavor coloque no minimo 8 carácteres")
     private String password;
     
-    @CNPJ
     @NotBlank
     private String cnpj;
 }

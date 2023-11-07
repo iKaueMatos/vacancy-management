@@ -14,8 +14,12 @@ import jakarta.validation.ValidationException;
 public class CandidateUseCase {
 
     private CandidateValidationService validationService;
-
     private CandidateService candidateService;
+
+    public CandidateUseCase(CandidateValidationService validationService, CandidateService candidateService) {
+        this.validationService = validationService;
+        this.candidateService = candidateService;
+    }
 
     public ResponseEntity<CandidateDTO> execute(CandidateDTO candidateDTO) {
         if (validationService.isValidCandidate(candidateDTO)) {

@@ -1,5 +1,7 @@
 package com.vacancymanagement.vacancymanagement.Application.DTO.Candidate;
 
+import org.hibernate.validator.constraints.br.CPF;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -34,4 +36,8 @@ public class CandidateDTO {
     @Pattern(regexp = "^(?=.*\\d).{4,8}$", flags = Flag.UNICODE_CASE)
     @Min(value = 8, message = "Senha invalida porfavor coloque no minimo 8 carácteres")
     private String password;
+
+    @CPF
+    @NotNull
+    private String document;
 }

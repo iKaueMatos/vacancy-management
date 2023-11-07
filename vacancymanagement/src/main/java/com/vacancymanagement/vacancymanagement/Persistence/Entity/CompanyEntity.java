@@ -1,5 +1,6 @@
 package com.vacancymanagement.vacancymanagement.Persistence.Entity;
 
+import org.hibernate.validator.constraints.UUID;
 import org.hibernate.validator.constraints.br.CNPJ;
 
 import jakarta.persistence.Column;
@@ -23,7 +24,7 @@ public class CompanyEntity {
     @Id
     @Column(name = "id_empresa")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @NotBlank
     @Column(name = "nome_empresa")

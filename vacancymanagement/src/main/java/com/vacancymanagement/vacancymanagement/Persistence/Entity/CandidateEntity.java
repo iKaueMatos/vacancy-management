@@ -3,6 +3,8 @@ package com.vacancymanagement.vacancymanagement.Persistence.Entity;
 import java.util.Date;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.UUID;
+import org.hibernate.validator.constraints.br.CPF;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +25,7 @@ public class CandidateEntity {
     @Id
     @Column(name = "id_candidato")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @NotBlank
     @Column(name = "nome")
@@ -47,6 +49,10 @@ public class CandidateEntity {
 
     @Column(name = "idade")
     private Integer age;
+
+    @CPF
+    @NotBlank
+    private String document;
 
     @CreationTimestamp
     @Column(name = "data_criacao")

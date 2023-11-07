@@ -3,6 +3,7 @@ package com.vacancymanagement.vacancymanagement.Persistence.Entity;
 import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.UUID;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,16 +14,18 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name = "Vagas")
 public class JobsEntity {
     
     @Id
     @Column(name = "id_vaga")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private UUID id;
 
     @Column(name = "descricao")
     private String description;
@@ -38,7 +41,7 @@ public class JobsEntity {
     private CompanyEntity companyEntity;
 
     @Column(name = "empresa_id")
-    private Long companyId;
+    private UUID companyId;
 
     @CreationTimestamp
     @Column(name = "data_criacao")

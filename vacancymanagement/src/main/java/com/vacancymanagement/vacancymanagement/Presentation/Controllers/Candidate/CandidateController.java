@@ -1,4 +1,4 @@
-package com.vacancymanagement.vacancymanagement.Presentation.Controllers.candidate;
+package com.vacancymanagement.vacancymanagement.Presentation.Controllers.Candidate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +23,10 @@ public class CandidateController {
     @PostMapping("/criar")
     public ResponseEntity<String> create(@Valid @RequestBody CandidateDTO candidate) {
         try {
-            candidateUseCase.execute(candidate);
+            if (candidate != null) {
+                candidateUseCase.execute(candidate);
+            }
+
             return ResponseEntity.status(HttpStatus.CREATED).body("Candidato criado com sucesso");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Falha ao criar candidato: " + e.getMessage());
